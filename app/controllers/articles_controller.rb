@@ -15,6 +15,15 @@ class ArticlesController < ApplicationController
     else
       render :index
     end
+
+    if params[:query].present?
+      search = Search.find_by(query: params[:query])
+      if search.present?
+        search.increment!(:increment_count)
+      else
+        Search.create(query: params[:query])
+      end
+    end
   end
 
   # GET /articles/1 or /articles/1.json

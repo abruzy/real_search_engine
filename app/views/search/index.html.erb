@@ -1,0 +1,16 @@
+<table class="table-auto">
+  <thead>
+    <tr>
+      <th class="px-4 py-2">Search Term</th>
+      <th class="px-4 py-2">Number of time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @searches.each do |search| %>
+      <tr>
+        <td class="border px-4 py-2"><%= search.query %></td>
+        <td class="border px-4 py-2"><%= search.increment_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
